@@ -13,7 +13,7 @@ https://developer.tdameritrade.com/content/simple-auth-local-apps
 */
 
 app.get('/', (req, res) => {
-    res.send('Hello World I AM ALIVE!')
+    res.send(`CLICK THIS LINK TO START THE PROCESS https://auth.tdameritrade.com/auth?response_type=code&redirect_uri=${process.env.REDIRECT_URI}&client_id=${process.env.CLIENT_ID}%40AMER.OAUTHAP`)
 })
 app.get('/auth', (req, res) => {
     var authRequest = {
