@@ -37,10 +37,13 @@ app.get('/auth', (req, res) => {
             // parse the tokens
             var authReply = JSON.parse(body);
             // to check it's correct, display it
-            res.send(authReply);
+            res.json(authReply);
         }
     });
 });
+app.get('/stock', (req, res) => {
+    res.send(process.env.ACCESS_token)
+})
 
 // start server
 var httpServer = http.createServer(app);
