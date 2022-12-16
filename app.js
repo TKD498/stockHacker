@@ -4,13 +4,17 @@ var request = require('request');
 var express = require('express');
 
 var app = express();
-const redirect_uri = '<YOUR-CALLBACK-URL>';
+const redirect_uri = process.env.REDIRECT_URI;
 
 /* 
 Callback endpoint the TDA app uses.
 To understand more about how the API authenticates, see this link.
 https://developer.tdameritrade.com/content/simple-auth-local-apps
 */
+
+app.get('/', (req, res) => {
+    res.send('Hello World I AM ALIVE!')
+})
 app.get('/auth', (req, res) => {
     var authRequest = {
         url: 'https://api.tdameritrade.com/v1/oauth2/token',
